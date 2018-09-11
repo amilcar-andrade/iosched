@@ -33,7 +33,7 @@ repositories {
 }
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdkVersion 24
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     publishNonDefault true
@@ -226,19 +226,18 @@ configurations {
 }
 
 dependencies {
+
     // Backend server
     compile project(path: ':server', configuration: 'android-endpoints')
-
-    compile ('com.google.api-client:google-api-client:1.22.0') {
+    compile('com.google.api-client:google-api-client:1.22.0') {
         // Dependency org.apache.httpcomponents:httpclient:4.0.1
         // conflicts with the internal version provided by Android.
-        exclude group: 'org.apache.httpcomponents', module:'httpclient'
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
     }
-
-    compile ('com.google.api-client:google-api-client-android:1.22.0') {
+    compile('com.google.api-client:google-api-client-android:1.22.0') {
         // Dependency org.apache.httpcomponents:httpclient:4.0.1
         // conflicts with the internal version provided by Android.
-        exclude group: 'org.apache.httpcomponents', module:'httpclient'
+        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
     }
 
     // Google Play services split client libs.
@@ -255,7 +254,9 @@ dependencies {
     compile "com.android.support:preference-v7:${android_support_lib_version}"
     compile "com.android.support:transition:${android_support_lib_version}"
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
     // Use a local build of the design lib to pick up some fixes.
+
     // See third_party/material-components-android
     compile(name: 'design-release-32b1f74', ext: 'aar')
 
@@ -267,28 +268,28 @@ dependencies {
 
     // Glide library, used to handle asynchronous loading and caching of images.
     compile 'com.github.bumptech.glide:glide:3.7.0'
-
     compile files('../third_party/disklrucache/libs/disklrucache-2.0.2.jar')
     compile files('../third_party/basic-http-client/libs/basic-http-client-android-0.88.jar')
+
     // SVG processor for the Conference Map overlay.
     compile(name: 'svg-android-2.0.7-20150515.214425-1', ext: 'jar')
-
     compile(name: 'StickyHeaders-release', ext: 'aar')
 
     // Google Maps Android API utility library
     compile('com.google.maps.android:android-maps-utils:0.4+') {
         exclude group: "com.google.android.gms"
     }
-
     compile 'com.google.android:flexbox:0.2.6'
 
     // Added to resolve conflicts between the app build and the test build. The app build resolves
+
     // the jsr305 dependency to version 1.3.9, but in the test build the espresso-core dependency
+
     // resolves jsr305 to 2.0.1. Declaring a compile dependency on jsr305 2.0.1 will ensure 2.0.1 or
+
     // greater is used for both app and test builds.
     compile 'com.google.code.findbugs:jsr305:2.0.1'
-
-    compile ('uk.co.chrisjenx:calligraphy:2.2.0') {
+    compile('uk.co.chrisjenx:calligraphy:2.2.0') {
         exclude group: 'com.android.support:design'
     }
     compile 'com.airbnb.android:lottie:2.0.0-beta4'
@@ -302,30 +303,25 @@ dependencies {
     compile "com.google.firebase:firebase-auth:${google_play_services_client_library_version}"
     compile "com.google.firebase:firebase-config:${google_play_services_client_library_version}"
     compile "com.google.firebase:firebase-crash:${google_play_services_client_library_version}"
-
-    compile "org.apache.commons:commons-lang3:3.5"
-
+    compile 'org.apache.commons:commons-lang3:3.5'
     normalDebugCompile "com.squareup.leakcanary:leakcanary-android:${leak_canary_version}"
     normalQualityassuranceCompile "com.squareup.leakcanary:leakcanary-android-no-op:${leak_canary_version}"
     normalReleaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:${leak_canary_version}"
-
     mapEditorDebugCompile "com.squareup.leakcanary:leakcanary-android:${leak_canary_version}"
     mapEditorQualityassuranceCompile "com.squareup.leakcanary:leakcanary-android-no-op:${leak_canary_version}"
     mapEditorReleaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:${leak_canary_version}"
-
     targetSdk22DebugCompile "com.squareup.leakcanary:leakcanary-android:${leak_canary_version}"
     targetSdk22QualityassuranceCompile "com.squareup.leakcanary:leakcanary-android-no-op:${leak_canary_version}"
     targetSdk22ReleaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:${leak_canary_version}"
-
     androidTestCompile 'com.android.support.test:runner:0.5'
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
     androidTestCompile 'com.android.support.test.espresso:espresso-intents:2.2.2'
     androidTestCompile 'com.android.support.test.espresso:espresso-contrib:2.2.2'
+
     // Resolve conflicts between main and test APK:
     androidTestCompile "com.android.support:support-annotations:${android_support_lib_version}"
     androidTestCompile "com.android.support:recyclerview-v7:${android_support_lib_version}"
     androidTestCompile "com.android.support:design:${android_support_lib_version}"
-
     testCompile 'junit:junit:4.12'
     testCompile 'org.hamcrest:hamcrest-core:1.3'
     testCompile 'org.mockito:mockito-core:1.10.8'
