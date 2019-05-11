@@ -132,12 +132,11 @@ public class SyncHelper {
         android.accounts.Account account = Account.getAccount();
 
         boolean dataChanged = false;
-
         if (!SettingsUtils.isDataBootstrapDone(mContext)) {
-            LOGD(TAG, "Sync aborting (data bootstrap not done yet)");
+        LOGD(TAG, "Sync aborting (data bootstrap not done yet)");
             // Start the bootstrap process so that the next time sync is called,
             // it is already bootstrapped.
-            DataBootstrapService.startDataBootstrapIfNecessary(mContext);
+        DataBootstrapService.startDataBootstrapIfNecessary(mContext);
             return false;
         }
 

@@ -32,7 +32,7 @@ repositories {
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    flavorDimensions "default"
 
     defaultConfig {
         applicationId "com.google.samples.apps.iosched"
@@ -232,68 +232,68 @@ android {
 
 dependencies {
     // Include libraries checked into the libs directory.
-    compile fileTree(dir: 'libs', include: '*.jar')
+    implementation fileTree(dir: 'libs', include: '*.jar')
 
     // Google Play services split client libs.
-    compile "com.google.android.gms:play-services-analytics:${google_play_services_client_library_version}"
-    compile "com.google.android.gms:play-services-appindexing:${google_play_services_client_library_version}"
-    compile "com.google.android.gms:play-services-auth:${google_play_services_client_library_version}"
-    compile "com.google.android.gms:play-services-gcm:${google_play_services_client_library_version}"
-    compile "com.google.android.gms:play-services-maps:${google_play_services_client_library_version}"
-    compile "com.google.android.gms:play-services-plus:${google_play_services_client_library_version}"
+    implementation "com.google.android.gms:play-services-analytics:${google_play_services_client_library_version}"
+    implementation "com.google.android.gms:play-services-appindexing:${google_play_services_client_library_version}"
+    implementation "com.google.android.gms:play-services-auth:${google_play_services_client_library_version}"
+    implementation "com.google.android.gms:play-services-gcm:${google_play_services_client_library_version}"
+    implementation "com.google.android.gms:play-services-maps:${google_play_services_client_library_version}"
+    implementation "com.google.android.gms:play-services-plus:${google_play_services_client_library_version}"
 
     // Android support libraries.
-    compile "com.android.support:appcompat-v7:${android_support_lib_version}"
-    compile "com.android.support:cardview-v7:${android_support_lib_version}"
-    compile "com.android.support:design:${android_support_lib_version}"
-    compile "com.android.support:support-v13:${android_support_lib_version}"
-    compile "com.android.support:recyclerview-v7:${android_support_lib_version}"
-    compile "com.android.support:preference-v7:${android_support_lib_version}"
+    implementation "com.android.support:appcompat-v7:${android_support_lib_version}"
+    implementation "com.android.support:cardview-v7:${android_support_lib_version}"
+    implementation "com.android.support:design:${android_support_lib_version}"
+    implementation "com.android.support:support-v13:${android_support_lib_version}"
+    implementation "com.android.support:recyclerview-v7:${android_support_lib_version}"
+    implementation "com.android.support:preference-v7:${android_support_lib_version}"
 
     // JSON utility library.
-    compile 'com.google.code.gson:gson:2.3'
+    implementation 'com.google.code.gson:gson:2.3'
 
     // Glide library, used to handle asynchronous loading and caching of images.
-    compile 'com.github.bumptech.glide:glide:3.5.2'
+    implementation 'com.github.bumptech.glide:glide:3.5.2'
 
-    compile files('../third_party/disklrucache/libs/disklrucache-2.0.2.jar')
-    compile files('../third_party/volley/libs/volley.jar')
-    compile files('../third_party/basic-http-client/libs/basic-http-client-android-0.88.jar')
+    implementation files('../third_party/disklrucache/libs/disklrucache-2.0.2.jar')
+    implementation files('../third_party/volley/libs/volley.jar')
+    implementation files('../third_party/basic-http-client/libs/basic-http-client-android-0.88.jar')
     // SVG processor for the Conference Map overlay.
-    compile(name: 'svg-android-2.0.7-20150515.214425-1', ext: 'jar')
+    implementation(name: 'svg-android-2.0.7-20150515.214425-1', ext: 'jar')
 
     // Google Maps Android API utility library
-    compile('com.google.maps.android:android-maps-utils:0.3.4') {
+    implementation('com.google.maps.android:android-maps-utils:0.3.4') {
         exclude group: "com.google.android.gms"
     }
 
     // Dependencies for android tests which reside in the "androidTest" src folder.
-    androidTestCompile 'com.android.support.test:runner:0.5'
-    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
-    androidTestCompile 'com.android.support.test.espresso:espresso-intents:2.2.2'
-    androidTestCompile 'com.android.support.test.espresso:espresso-contrib:2.2.2'
+    androidTestImplementation 'com.android.support.test:runner:0.5'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-intents:2.2.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-contrib:2.2.2'
     // Resolve conflicts between main and test APK:
-    androidTestCompile "com.android.support:support-annotations:${android_support_lib_version}"
-    androidTestCompile "com.android.support:recyclerview-v7:${android_support_lib_version}"
-    androidTestCompile "com.android.support:design:${android_support_lib_version}"
+    androidTestImplementation "com.android.support:support-annotations:${android_support_lib_version}"
+    androidTestImplementation "com.android.support:recyclerview-v7:${android_support_lib_version}"
+    androidTestImplementation "com.android.support:design:${android_support_lib_version}"
 
     // Dependencies for unit tests which reside in the "tests" src folder.
-    testCompile 'junit:junit:4.12'
-    testCompile 'org.hamcrest:hamcrest-core:1.3'
-    testCompile 'org.mockito:mockito-core:1.10.8'
-    testCompile 'org.powermock:powermock-api-mockito:1.6.4'
-    testCompile 'org.powermock:powermock-module-junit4-rule-agent:1.6.4'
-    testCompile 'org.powermock:powermock-module-junit4-rule:1.6.4'
-    testCompile 'org.powermock:powermock-module-junit4:1.6.4'
-    testCompile 'org.json:json:20090211'
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.hamcrest:hamcrest-core:1.3'
+    testImplementation 'org.mockito:mockito-core:1.10.8'
+    testImplementation 'org.powermock:powermock-api-mockito:1.6.4'
+    testImplementation 'org.powermock:powermock-module-junit4-rule-agent:1.6.4'
+    testImplementation 'org.powermock:powermock-module-junit4-rule:1.6.4'
+    testImplementation 'org.powermock:powermock-module-junit4:1.6.4'
+    testImplementation 'org.json:json:20090211'
 
     // Added to resolve conflicts between the app build and the test build. The app build resolves
     // the jsr305 dependency to version 1.3.9, but in the test build the espresso-core dependency
     // resolves jsr305 to 2.0.1. Declaring a compile dependency on jsr305 2.0.1 will ensure 2.0.1 or
     // greater is used for both app and test builds.
-    compile 'com.google.code.findbugs:jsr305:2.0.1'
+    implementation 'com.google.code.findbugs:jsr305:2.0.1'
 
-    compile 'com.google.guava:guava:18.0'
-    compile 'com.android.support:multidex:1.0.1'
-    compile 'com.firebase:firebase-client-android:2.5.0'
+    implementation 'com.google.guava:guava:18.0'
+    implementation 'com.android.support:multidex:1.0.1'
+    implementation 'com.firebase:firebase-client-android:2.5.0'
 }

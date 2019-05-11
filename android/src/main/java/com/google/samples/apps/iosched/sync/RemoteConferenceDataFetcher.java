@@ -137,7 +137,7 @@ public class RemoteConferenceDataFetcher {
         } else {
             LOGE(TAG, "Error fetching conference data: HTTP status " + status + " and manifest " +
                     mManifestUrl);
-            throw new IOException("Error fetching conference data: HTTP status " + status);
+            return null;
         }
     }
 

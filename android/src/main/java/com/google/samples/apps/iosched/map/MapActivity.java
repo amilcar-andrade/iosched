@@ -73,7 +73,7 @@ public class MapActivity extends BaseActivity
 
     protected MapFragment mMapFragment;
 
-    private MapInfoFragment mInfoFragment;
+    public MapInfoFragment mInfoFragment;
 
     private View mInfoContainer;
 

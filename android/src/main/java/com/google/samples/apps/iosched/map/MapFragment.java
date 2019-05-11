@@ -58,6 +58,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import static com.google.samples.apps.iosched.util.LogUtils.LOGD;
 import static com.google.samples.apps.iosched.util.LogUtils.makeLogTag;
@@ -122,7 +124,7 @@ public class MapFragment extends com.google.android.gms.maps.MapFragment impleme
 
 
     // Markers stored by id
-    protected HashMap<String, MarkerModel> mMarkers = new HashMap<>();
+    public HashMap<String, MarkerModel> mMarkers = new HashMap<>();
     // Markers stored by floor
     protected SparseArray<ArrayList<Marker>> mMarkersFloor =
             new SparseArray<>(INITIAL_FLOOR_COUNT);
@@ -669,6 +671,13 @@ public class MapFragment extends com.google.android.gms.maps.MapFragment impleme
             }
         }
 
+        final Set<Map.Entry<String, MarkerModel>> entries = mMarkers.entrySet();
+        for (Map.Entry<String, MarkerModel> e : entries) {
+            final MapActivity activity = (MapActivity) getActivity();
+            final MarkerModel value = e.getValue();
+            activity.mInfoFragment.showSessionList(value.id, value.label, value.floor);
+            break;
+        }
         enableMapElements();
     }
 

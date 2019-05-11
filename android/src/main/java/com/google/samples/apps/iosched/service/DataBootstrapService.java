@@ -52,10 +52,8 @@ public class DataBootstrapService extends IntentService {
      *                shared preference to mark the process as done is set.
      */
     public static void startDataBootstrapIfNecessary(Context context) {
-        if (!SettingsUtils.isDataBootstrapDone(context)) {
-            LOGW(TAG, "One-time data bootstrap not done yet. Doing now.");
-            context.startService(new Intent(context, DataBootstrapService.class));
-        }
+        LOGW(TAG, "One-time data bootstrap not done yet. Doing now.");
+        context.startService(new Intent(context, DataBootstrapService.class));
     }
 
     /**
@@ -73,6 +71,7 @@ public class DataBootstrapService extends IntentService {
             LOGD(TAG, "Data bootstrap already done.");
             return;
         }
+
         try {
             LOGD(TAG, "Starting data bootstrap process.");
             // Load data from bootstrap raw resource.
